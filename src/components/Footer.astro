@@ -1,0 +1,269 @@
+---
+import Icon from './ui/Icon.astro';
+import LangSwitch from './LangSwitch.astro';
+import { localePath, useTranslations, type Lang, type PageSlug } from '../i18n/utils';
+import { site, whatsappLink } from '../content/site';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  lang: Lang;
+  slug?: PageSlug;
+}
+
+const { lang, slug = '' } = Astro.props;
+const t = useTranslations(lang);
+const home = localePath(lang);
+const anchor = (id: string) => (slug ? `${home}#${id}` : `#${id}`);
+const socialMeta: Record<keyof typeof site.socials, { icon: IconName; label: string }> = {
+  instagram: { icon: 'instagram', label: 'Instagram' },
+  tiktok: { icon: 'tiktok', label: 'TikTok' },
+  linkedin: { icon: 'linkedin', label: 'LinkedIn' },
+  telegram: { icon: 'telegram', label: 'Telegram' },
+};
+const socials = (Object.keys(site.socials) as (keyof typeof site.socials)[])
+  .filter((key) => site.socials[key])
+  .map((key) => ({ href: site.socials[key], ...socialMeta[key] }));
+const year = new Date().getFullYear();
+---
+
+<footer id="contacto" class="footer" aria-labelledby="footer-title">
+  <h2 id="footer-title" class="sr-only">{t.nav.contact}</h2>
+  <div class="container-x cols">
+    <div class="col">
+      <h3 class="col-title">{t.footer.contactsTitle}</h3>
+      <div class="contact-actions">
+        <a class="contact-btn" href={`tel:+${site.whatsappNumber}`}>
+          <Icon name="phone" size={18} />
+          {t.footer.call}
+        </a>
+        <a class="contact-btn" href={whatsappLink(t.whatsapp.businessText)} target="_blank" rel="noopener" data-wa-placement="footer">
+          <Icon name="whatsapp" size={18} />
+          {t.whatsapp.fabLabel}
+        </a>
+      </div>
+      <dl class="contacts">
+        <div>
+          <dt>{t.footer.email}</dt>
+          <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+        </div>
+        <div>
+          <dt>{t.footer.hours}</dt>
+          <dd>{t.footer.hoursValue}</dd>
+        </div>
+        <div>
+          <dt>{t.footer.area}</dt>
+          <dd>{t.footer.areaValue}</dd>
+        </div>
+      </dl>
+    </div>
+
+    {socials.length > 0 && (
+      <div class="col">
+        <h3 class="col-title">{t.footer.socialTitle}</h3>
+        <ul class="socials">
+          {socials.map((item) => (
+            <li>
+              <a href={item.href} target="_blank" rel="noopener" aria-label={item.label}>
+                <Icon name={item.icon} size={20} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <nav class="col" aria-label={t.footer.navTitle}>
+      <h3 class="col-title">{t.footer.navTitle}</h3>
+      <ul class="links">
+        <li><a href={anchor('perfiles')}>{t.nav.roles}</a></li>
+        <li><a href={anchor('proceso')}>{t.nav.process}</a></li>
+        <li><a href={anchor('form')}>{t.nav.cta}</a></li>
+      </ul>
+      <ul class="links legal">
+        <li><a href={localePath(lang, 'legal')}>{t.footer.legal.legal}</a></li>
+        <li><a href={localePath(lang, 'privacy')}>{t.footer.legal.privacy}</a></li>
+        <li><a href={localePath(lang, 'cookies')}>{t.footer.legal.cookies}</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container-x bottom">
+    <p>© {year} Smena</p>
+    <LangSwitch lang={lang} slug={slug} tone="dark" />
+  </div>
+
+  <div class="wordmark" aria-hidden="true">Smena</div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    overflow: hidden;
+    padding-top: var(--section-y);
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .cols {
+    display: grid;
+    gap: 40px;
+  }
+
+  .col-title {
+    margin-bottom: 18px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--sky);
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid rgb(243 242 238 / .4);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color .2s, border-color .2s, color .2s;
+  }
+
+  .contact-btn:hover {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--ink);
+  }
+
+  .contacts {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .contacts dt {
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .65;
+  }
+
+  .contacts dd {
+    margin: 2px 0 0;
+    font-size: 17px;
+  }
+
+  a {
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  .contacts a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+  }
+
+  .socials {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .socials a {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgb(243 242 238 / .4);
+    transition: background-color .2s, color .2s;
+  }
+
+  .socials a:hover {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--ink);
+  }
+
+  .links {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+  }
+
+  .legal {
+    margin-top: 18px;
+    font-size: 14px;
+    opacity: .8;
+  }
+
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 56px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgb(243 242 238 / .18);
+    font-size: 13px;
+  }
+
+  .bottom p {
+    opacity: .75;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 30vw;
+    line-height: .78;
+    letter-spacing: -0.05em;
+    text-align: center;
+    color: var(--butter);
+    margin-bottom: -.12em;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 72px);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .cols {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .wordmark {
+      font-size: 24vw;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .wordmark {
+      font-size: 22vw;
+    }
+  }
+</style>

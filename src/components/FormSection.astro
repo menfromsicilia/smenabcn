@@ -1,0 +1,115 @@
+---
+import LeadForm from './LeadForm.vue';
+import CandidateForm from './CandidateForm.vue';
+import Icon from './ui/Icon.astro';
+import Photo from './ui/Photo.astro';
+import { accent, localePath, useTranslations, type Lang } from '../i18n/utils';
+import { whatsappLink } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const privacyHref = localePath(lang, 'privacy');
+const whatsappHref = whatsappLink(t.whatsapp.businessText);
+---
+
+<section id="form" class="section-y form-section" aria-labelledby="form-title" data-form-section>
+  <div class="container-x">
+    <div class="grid">
+      <div class="intro">
+        <p class="eyebrow" data-reveal>{t.form.eyebrow}</p>
+        <h2 id="form-title" class="h2" set:html={accent(t.form.title)} data-reveal style="--i: 1" />
+        <ul class="bullets">
+          {t.form.bullets.map((item, index) => (
+            <li data-reveal style={`--i: ${index + 2}`}>
+              <span class="tick"><Icon name="check" size={16} strokeWidth={2.5} /></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <figure class="photo-card" data-reveal style="--i: 4">
+          <Photo photo="form" alt={t.form.photoAlt} icon="bell" tone="blush" sizes="(min-width: 1024px) 34vw, 0px" />
+        </figure>
+      </div>
+
+      <div class="card-col" data-reveal>
+        <LeadForm client:idle lang={lang} t={t.form} privacyHref={privacyHref} whatsappHref={whatsappHref} />
+      </div>
+    </div>
+
+    <CandidateForm client:idle lang={lang} t={t.form} privacyHref={privacyHref} whatsappHref={whatsappHref} />
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    gap: 32px;
+  }
+
+  .intro {
+    display: grid;
+    gap: 20px;
+    align-content: start;
+  }
+
+  .h2 {
+    --accent: var(--tomato-ink);
+  }
+
+  .bullets {
+    display: grid;
+    gap: 12px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bullets li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 16px;
+  }
+
+  .tick {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 26px;
+    height: 26px;
+    margin-top: 1px;
+    border-radius: 50%;
+    background: var(--butter);
+  }
+
+  .photo-card {
+    display: none;
+    margin: 16px 0 0;
+    height: 300px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    transform: rotate(-2deg);
+    max-width: 420px;
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 5fr 6fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .intro {
+      position: sticky;
+      top: calc(var(--header-h) + 24px);
+    }
+
+    .photo-card {
+      display: block;
+    }
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import RoleCard from './RoleCard.astro';
+import { accent, useTranslations, type Lang } from '../i18n/utils';
+import { roleKeys, site } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="perfiles" class="section-y roles" aria-labelledby="roles-title">
+  <div class="container-x">
+    <div class="head">
+      <p class="eyebrow" data-reveal>{t.roles.eyebrow}</p>
+      <h2 id="roles-title" class="h2" set:html={accent(t.roles.title)} data-reveal style="--i: 1" />
+    </div>
+  </div>
+  <div class="cards-wrap">
+    <ul class="cards" aria-label={t.roles.eyebrow}>
+      {roleKeys.map((role, index) => (
+        <li>
+          <RoleCard
+            role={role}
+            index={index}
+            title={t.roles.items[role].title}
+            roles={t.roles.items[role].roles}
+            cta={t.roles.cta}
+            ctaAria={t.roles.ctaAria}
+            color={site.roleColors[role]}
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .head {
+    display: grid;
+    gap: 18px;
+    max-width: 860px;
+    margin-bottom: 40px;
+  }
+
+  .h2 {
+    --accent: var(--tomato-ink);
+  }
+
+  .cards-wrap {
+    width: 100%;
+    max-width: calc(var(--container) + var(--gutter) * 2);
+    margin-inline: auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(84%, 340px);
+    gap: 14px;
+    margin: 0;
+    padding: 4px var(--gutter) 12px;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards li {
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    .cards {
+      grid-auto-flow: row;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-columns: auto;
+      gap: 24px;
+      overflow: visible;
+      padding-bottom: 0;
+    }
+
+    .cards li:nth-child(even) {
+      transform: translateY(40px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .head {
+      margin-bottom: 64px;
+    }
+
+    .cards li:nth-child(even) {
+      transform: translateY(64px);
+    }
+
+    .roles {
+      padding-bottom: calc(var(--section-y) + 64px);
+    }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  size?: 'md' | 'lg';
+}
+
+const { href, label, size = 'md' } = Astro.props;
+---
+
+<a class:list={['logo', `logo-${size}`]} href={href} title={label}>
+  <span class="word">Smena</span>
+  <span class="badge" aria-hidden="true">BCN</span>
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    gap: 6px;
+    min-height: 44px;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .word {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .badge {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 3px 7px;
+    border-radius: var(--radius-pill);
+    background: var(--tomato);
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    line-height: 1;
+  }
+
+  @media (min-width: 1024px) {
+    .word {
+      font-size: 34px;
+    }
+  }
+</style>

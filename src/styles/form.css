@@ -1,0 +1,197 @@
+.f-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.f-field {
+  display: grid;
+  gap: 8px;
+}
+
+.f-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.f-control {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 18px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  transition: border-color .2s, background-color .2s, box-shadow .2s;
+  appearance: none;
+}
+
+.f-control::placeholder {
+  color: #8A8378;
+}
+
+.f-control:hover {
+  border-color: var(--ink);
+}
+
+.f-control:focus-visible {
+  outline: none;
+  border-color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--tomato);
+}
+
+.f-control[aria-invalid='true'] {
+  border-color: var(--tomato-ink);
+  background: #FDF0ED;
+}
+
+.f-select {
+  padding-right: 48px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%231C1A17' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+
+.f-select.is-empty {
+  color: #8A8378;
+}
+
+.f-select.is-flash {
+  animation: f-flash 1.2s var(--ease-out);
+}
+
+@keyframes f-flash {
+  0%, 60% {
+    box-shadow: 0 0 0 4px var(--butter);
+    border-color: var(--ink);
+  }
+}
+
+.f-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: var(--tomato-ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.f-check {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.f-check input {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 7px;
+  background: var(--bg);
+  appearance: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color .15s;
+}
+
+.f-check input::after {
+  content: '';
+  width: 12px;
+  height: 7px;
+  margin-top: -3px;
+  border-left: 2.5px solid var(--butter);
+  border-bottom: 2.5px solid var(--butter);
+  transform: rotate(-45deg) scale(0);
+  transition: transform .15s var(--ease-out);
+}
+
+.f-check input:checked {
+  background: var(--ink);
+}
+
+.f-check input:checked::after {
+  transform: rotate(-45deg) scale(1);
+}
+
+.f-check input[aria-invalid='true'] {
+  border-color: var(--tomato-ink);
+  box-shadow: 0 0 0 2px #FDF0ED;
+}
+
+.f-check a {
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.f-hp {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.f-small {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.f-spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: f-spin .7s linear infinite;
+}
+
+@keyframes f-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.f-alert {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: #FDF0ED;
+  border: 1.5px solid var(--tomato-ink);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.f-wa {
+  --btn-bg: #1F7A4D;
+  --btn-fg: #FFFFFF;
+}
+
+.f-wa svg,
+.f-wa:hover svg {
+  transform: none;
+}
+
+.f-turnstile:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f-spinner {
+    animation-duration: 1.5s !important;
+    animation-iteration-count: infinite !important;
+  }
+}

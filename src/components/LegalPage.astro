@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { localePath, useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  slug: 'legal' | 'privacy' | 'cookies';
+}
+
+const { lang, slug } = Astro.props;
+const t = useTranslations(lang);
+const doc = t.legal[slug];
+---
+
+<Base lang={lang} slug={slug} title={`${doc.title} | Smena`} description={`${doc.title} — Smena, ${t.brand.descriptor}`}>
+  <Header lang={lang} slug={slug} />
+  <main id="main" class="legal-main">
+    <article class="container-x doc">
+      <a class="back" href={localePath(lang)}>{t.footer.backHome}</a>
+      <h1 class="h2">{doc.title}</h1>
+      <p class="updated">{t.legal.updated}</p>
+      {t.legal.priorityNote && (
+        <p class="note">
+          {t.legal.priorityNote} <a href={localePath('es', slug)} hreflang="es" lang="es">{t.legal.priorityLink}</a>
+        </p>
+      )}
+      {doc.sections.map((section) => (
+        <section>
+          <h2 class="h3">{section.h}</h2>
+          {section.p.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+      ))}
+    </article>
+  </main>
+  <Footer lang={lang} slug={slug} />
+</Base>
+
+<style>
+  .legal-main {
+    padding: 32px 0 96px;
+  }
+
+  .doc {
+    max-width: 820px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 600;
+    font-size: 14px;
+    text-underline-offset: 4px;
+  }
+
+  .updated {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  .note {
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    background: var(--butter);
+    font-size: 15px;
+  }
+
+  .note a {
+    font-weight: 600;
+  }
+
+  section {
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  section p {
+    color: var(--ink-soft);
+  }
+</style>

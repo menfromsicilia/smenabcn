@@ -1,0 +1,64 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className } = Astro.props;
+const id = `sticker-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class:list={['sticker', className]} aria-hidden="true">
+  <svg viewBox="0 0 120 120" width="110" height="110">
+    <defs>
+      <path id={id} d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+    </defs>
+    <circle cx="60" cy="60" r="59" fill="var(--butter)" />
+    <g class="ring">
+      <text>
+        <textPath href={`#${id}`} textLength="276" lengthAdjust="spacingAndGlyphs">{text}</textPath>
+      </text>
+    </g>
+    <path d="M60 44l4.5 11 11.5.6-9 7.3 3.1 11.1L60 67.8 49.9 74l3.1-11.1-9-7.3 11.5-.6z" fill="var(--tomato)" />
+  </svg>
+</div>
+
+<style>
+  .sticker {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgb(28 26 23 / .14);
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  text {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    fill: var(--ink);
+  }
+
+  .ring {
+    transform-origin: 60px 60px;
+    animation: spin 20s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ring {
+      animation: none;
+    }
+  }
+</style>

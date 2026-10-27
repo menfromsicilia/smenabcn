@@ -1,0 +1,64 @@
+---
+import Icon from './ui/Icon.astro';
+import { useTranslations, type Lang } from '../i18n/utils';
+import { whatsappLink } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<a
+  class="wa-fab"
+  href={whatsappLink(t.whatsapp.businessText)}
+  target="_blank"
+  rel="noopener"
+  aria-label={t.whatsapp.fabLabel}
+  data-wa-placement="fab"
+>
+  <Icon name="whatsapp" size={28} strokeWidth={1.75} />
+</a>
+
+<style>
+  .wa-fab {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1F7A4D;
+    color: #FFFFFF;
+    box-shadow: 0 10px 24px -8px rgb(28 26 23 / .45);
+    transition: transform .3s var(--ease-out), bottom .3s var(--ease-out), opacity .3s;
+  }
+
+  .wa-fab:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  :global(html[data-sticky='1']) .wa-fab {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+
+  @media (max-width: 767px) {
+    :global(html[data-form-visible='1']) .wa-fab {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .wa-fab {
+      right: 28px;
+      bottom: 28px;
+    }
+  }
+</style>

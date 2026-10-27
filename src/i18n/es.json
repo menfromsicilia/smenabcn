@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "title": "Personal para hostelería y belleza en Barcelona en 7 días | Smena",
+    "description": "Camareros, baristas, recepcionistas y profesionales de belleza verificados en Barcelona. Candidatos en 48 h, solo pagas por resultado.",
+    "ogLocale": "es_ES",
+    "ogAlt": "Smena — personal para hostelería y belleza en Barcelona"
+  },
+  "brand": {
+    "category": "Personal para hostelería y belleza",
+    "descriptor": "Personal para hostelería y belleza · Barcelona",
+    "home": "Smena — inicio"
+  },
+  "nav": {
+    "label": "Navegación principal",
+    "roles": "Perfiles",
+    "process": "Cómo trabajamos",
+    "contact": "Contacto",
+    "cta": "Solicitar personal",
+    "open": "Abrir menú",
+    "close": "Cerrar menú",
+    "skip": "Saltar al contenido",
+    "lang": "Idioma"
+  },
+  "langHint": {
+    "offer": "¿Prefieres leerlo en español?",
+    "link": "Ver en español →",
+    "dismiss": "Cerrar"
+  },
+  "hero": {
+    "eyebrow": "Personal para hostelería y belleza · Barcelona",
+    "title": "Cubrimos la vacante de tu cafetería, restaurante o salón en *7 días*",
+    "subtitle": "Camareros, baristas, recepcionistas y profesionales de belleza verificados en Barcelona. Solo pagas por resultado.",
+    "ctaPrimary": "Solicitar personal",
+    "ctaSecondary": "Busco trabajo",
+    "sticker": "PAGAS SOLO POR RESULTADO · PAGAS SOLO POR RESULTADO · ",
+    "facts": [
+      {
+        "value": "48 h",
+        "label": "primeros candidatos"
+      },
+      {
+        "value": "30 días",
+        "label": "sustitución gratis"
+      },
+      {
+        "value": "0 €",
+        "label": "por adelantado"
+      }
+    ],
+    "photos": {
+      "barista": "Barista preparando café",
+      "waiter": "Camarero con bandeja",
+      "beauty": "Manicurista trabajando"
+    }
+  },
+  "marquee": [
+    "Camareros",
+    "Baristas",
+    "Recepcionistas",
+    "Peluqueros",
+    "Manicuristas",
+    "Bartenders"
+  ],
+  "roles": {
+    "eyebrow": "Qué perfiles cubrimos",
+    "title": "Todo el equipo, *de la barra al sillón*",
+    "cta": "Solicitar",
+    "ctaAria": "Solicitar: {role}",
+    "carouselHint": "Desliza las tarjetas",
+    "items": {
+      "floor": {
+        "title": "Sala y barra",
+        "roles": [
+          "Camareros",
+          "Bartenders",
+          "Runners",
+          "Ayudantes de sala"
+        ]
+      },
+      "coffee": {
+        "title": "Cafeterías",
+        "roles": [
+          "Baristas",
+          "Dependientes",
+          "Ayudantes"
+        ]
+      },
+      "front": {
+        "title": "Recepción y gestión",
+        "roles": [
+          "Recepcionistas",
+          "Hostess",
+          "Encargados",
+          "Gerentes"
+        ]
+      },
+      "beauty": {
+        "title": "Belleza",
+        "roles": [
+          "Peluqueros",
+          "Barberos",
+          "Manicuristas",
+          "Pedicuristas",
+          "Especialistas en cejas",
+          "Técnicos de pestañas",
+          "Maquilladores"
+        ]
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Cómo trabajamos",
+    "title": "Cuatro pasos. *Sin sorpresas.*",
+    "steps": [
+      {
+        "title": "Solicitud",
+        "text": "Nos cuentas qué perfil necesitas. 2 minutos."
+      },
+      {
+        "title": "Candidatos en 48 h",
+        "text": "Te enviamos perfiles ya entrevistados y verificados."
+      },
+      {
+        "title": "Tú eliges",
+        "text": "Haces la prueba o entrevista con quien te encaje."
+      },
+      {
+        "title": "Empieza a trabajar",
+        "text": "El nuevo miembro del equipo se incorpora."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Solo pagas por resultado",
+        "text": "Si no contratas, no pagas nada."
+      },
+      {
+        "title": "Sustitución gratis 30 días",
+        "text": "Si la persona no encaja en el primer mes, buscamos otra sin coste."
+      }
+    ],
+    "cta": "Empezar ahora"
+  },
+  "form": {
+    "eyebrow": "Solicitud",
+    "title": "¿A quién necesitas? *Te respondemos hoy.*",
+    "bullets": [
+      "Te escribimos por WhatsApp en menos de 2 horas (L–V, 9–20 h)",
+      "Sin compromiso ni pago por adelantado",
+      "Primeros candidatos en 48 h"
+    ],
+    "photoAlt": "Recepcionista en el mostrador",
+    "formLabel": "Solicitud de personal",
+    "fields": {
+      "name": {
+        "label": "Tu nombre",
+        "placeholder": "Ana"
+      },
+      "business": {
+        "label": "Nombre del negocio",
+        "placeholder": "Café Gràcia"
+      },
+      "role": {
+        "label": "¿A quién buscas?",
+        "placeholder": "Elige un perfil"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "placeholder": "+34 600 000 000"
+      }
+    },
+    "roleOptions": {
+      "floor": "Sala y barra",
+      "coffee": "Cafetería / barista",
+      "front": "Recepción y gestión",
+      "beauty": "Belleza",
+      "other": "Otro"
+    },
+    "consent": {
+      "before": "Acepto la ",
+      "link": "política de privacidad",
+      "after": ""
+    },
+    "submit": "Enviar solicitud",
+    "sending": "Enviando…",
+    "privacyInfo": "Responsable: Smena. Finalidad: contactarte sobre tu solicitud. Derechos: acceso, rectificación, supresión y otros por email. Más información en la política de privacidad.",
+    "errors": {
+      "required": "Rellena este campo",
+      "tooShort": "Demasiado corto",
+      "tooLong": "Demasiado largo",
+      "phone": "Revisa el número: por ejemplo, +34 600 000 000",
+      "consent": "Necesitamos tu consentimiento",
+      "role": "Elige una opción",
+      "rate": "Demasiadas solicitudes seguidas. Inténtalo en unos minutos o escríbenos por WhatsApp."
+    },
+    "success": {
+      "title": "¡Recibido!",
+      "text": "Te escribimos por WhatsApp en breve.",
+      "cta": "Escribir ahora por WhatsApp"
+    },
+    "failure": {
+      "text": "Algo ha fallado. Escríbenos directamente por WhatsApp",
+      "cta": "Escribir por WhatsApp",
+      "retry": "Intentar de nuevo"
+    },
+    "candidate": {
+      "lead": "¿Buscas trabajo?",
+      "text": "Déjanos tu contacto y te escribiremos cuando haya una vacante.",
+      "toggle": "Dejar contacto",
+      "formLabel": "Contacto de candidato",
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Ana"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "placeholder": "+34 600 000 000"
+      },
+      "profession": {
+        "label": "Profesión",
+        "placeholder": "Elige"
+      },
+      "submit": "Enviar",
+      "privacyInfo": "Responsable: Smena. Finalidad: guardar tu contacto en la base de candidatos durante 12 meses y ofrecerte vacantes. Derechos por email.",
+      "success": "¡Gracias! Te escribimos cuando haya una vacante para ti."
+    }
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Preguntas *frecuentes*",
+    "items": [
+      {
+        "q": "¿Cuánto cuesta?",
+        "a": "[Condiciones pendientes: importe fijo o % del primer salario.]"
+      },
+      {
+        "q": "¿Qué significa «solo pagas por resultado»?",
+        "a": "[Confirmar según contrato: pago tras la incorporación.]"
+      }
+    ]
+  },
+  "whatsapp": {
+    "businessText": "Hola, necesito personal para mi negocio",
+    "fabLabel": "Escribir por WhatsApp"
+  },
+  "stickyCta": "Solicitar personal",
+  "footer": {
+    "contactsTitle": "Contacto",
+    "call": "Llamar",
+    "email": "Email",
+    "hours": "Horario",
+    "hoursValue": "L–V 9:00–20:00",
+    "area": "Zona",
+    "areaValue": "Barcelona y alrededores",
+    "socialTitle": "Redes",
+    "navTitle": "Navegación",
+    "legal": {
+      "legal": "Aviso legal",
+      "privacy": "Política de privacidad",
+      "cookies": "Política de cookies"
+    },
+    "backHome": "← Volver al inicio"
+  },
+  "legal": {
+    "priorityNote": "",
+    "priorityLink": "",
+    "updated": "Actualizado: 26/10/2026",
+    "legal": {
+      "title": "Aviso legal",
+      "sections": [
+        {
+          "h": "Titular",
+          "p": [
+            "En cumplimiento de la Ley 34/2002 (LSSI-CE) se informa de los datos del titular del sitio web:",
+            "Nombre / razón social: [NOMBRE]",
+            "NIF: [NIF]",
+            "Domicilio: [DIRECCIÓN]",
+            "Email: hello@smenabcn.com"
+          ]
+        },
+        {
+          "h": "Objeto",
+          "p": [
+            "Este sitio informa sobre los servicios de selección de personal para hostelería y belleza en Barcelona y permite enviar solicitudes."
+          ]
+        },
+        {
+          "h": "Responsabilidad",
+          "p": [
+            "El titular no se hace responsable del mal uso de los contenidos ni de los sitios de terceros enlazados."
+          ]
+        },
+        {
+          "h": "Legislación aplicable",
+          "p": [
+            "Se aplica la legislación española. Para cualquier controversia, los juzgados de Barcelona, salvo que la ley disponga otra cosa."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "sections": [
+        {
+          "h": "Responsable",
+          "p": [
+            "[NOMBRE], NIF [NIF], [DIRECCIÓN]. Email: hello@smenabcn.com."
+          ]
+        },
+        {
+          "h": "Qué datos y para qué",
+          "p": [
+            "Formulario de empresa: nombre, negocio, perfil buscado y número de WhatsApp. Finalidad: contactarte sobre tu solicitud y seleccionar personal.",
+            "Formulario de candidato: nombre, número de WhatsApp y profesión. Finalidad: conservar tu contacto en la base de candidatos y ofrecerte vacantes."
+          ]
+        },
+        {
+          "h": "Legitimación",
+          "p": [
+            "Tu consentimiento (art. 6.1.a RGPD), que das al marcar la casilla. Puedes retirarlo en cualquier momento."
+          ]
+        },
+        {
+          "h": "Conservación",
+          "p": [
+            "Solicitudes de empresa: mientras dure la relación y los plazos legales. Contactos de candidatos: 12 meses."
+          ]
+        },
+        {
+          "h": "Destinatarios",
+          "p": [
+            "No se ceden datos a terceros, salvo a encargados del tratamiento: Telegram (avisos al gestor), Google (hoja de solicitudes) y Cloudflare (alojamiento)."
+          ]
+        },
+        {
+          "h": "Derechos",
+          "p": [
+            "Acceso, rectificación, supresión, limitación, portabilidad y oposición (ARSULIPO) en hello@smenabcn.com. Puedes reclamar ante la AEPD (www.aepd.es)."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "sections": [
+        {
+          "h": "Qué usamos",
+          "p": [
+            "Este sitio no instala cookies publicitarias ni analíticas. Las estadísticas se recogen sin cookies y sin datos personales."
+          ]
+        },
+        {
+          "h": "Almacenamiento local",
+          "p": [
+            "Los parámetros de campaña (UTM) se guardan en sessionStorage hasta cerrar la pestaña para adjuntarlos a la solicitud. La protección antispam (Cloudflare Turnstile) puede usar datos técnicos del navegador."
+          ]
+        },
+        {
+          "h": "Cambios",
+          "p": [
+            "Si añadimos píxeles publicitarios, solo se cargarán tras tu consentimiento en el banner."
+          ]
+        }
+      ]
+    }
+  }
+}

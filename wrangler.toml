@@ -1,0 +1,9 @@
+name = "smena-landing"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-01"
+
+# Опционально: KV для rate limit, общий для всех инстансов.
+# Без него лимит считается в памяти инстанса.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "<kv-namespace-id>"

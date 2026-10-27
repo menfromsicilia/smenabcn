@@ -1,0 +1,77 @@
+---
+import { languages, langCodes, localePath, useTranslations, type Lang, type PageSlug } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  slug?: PageSlug;
+  tone?: 'light' | 'dark';
+}
+
+const { lang, slug = '', tone = 'light' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav class:list={['lang-switch', `tone-${tone}`]} aria-label={t.nav.lang}>
+  <ul>
+    {langCodes.map((code) => (
+      <li>
+        <a
+          href={localePath(code, slug)}
+          hreflang={languages[code].htmlLang}
+          lang={languages[code].htmlLang}
+          data-lang-link
+          aria-current={code === lang ? 'true' : undefined}
+        >
+          {languages[code].label}<span class="sr-only"> — {languages[code].name}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  ul {
+    display: flex;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 4px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-decoration: none;
+    color: var(--ink-soft);
+    transition: color .2s, background-color .2s;
+  }
+
+  a:hover {
+    color: var(--ink);
+  }
+
+  .tone-dark a {
+    color: #C9C3B8;
+  }
+
+  .tone-dark a:hover {
+    color: var(--bg);
+  }
+
+  a[aria-current] {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .tone-dark a[aria-current] {
+    background: var(--bg);
+    color: var(--ink);
+  }
+</style>

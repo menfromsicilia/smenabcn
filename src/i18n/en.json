@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "title": "Staff for cafés, restaurants and salons in Barcelona in 7 days | Smena",
+    "description": "Vetted waiters, baristas, receptionists and beauty professionals in Barcelona. Candidates in 48 hours, you only pay for results.",
+    "ogLocale": "en_GB",
+    "ogAlt": "Smena — hospitality & beauty staffing in Barcelona"
+  },
+  "brand": {
+    "category": "Hospitality & Beauty Staffing",
+    "descriptor": "Hospitality & Beauty Staffing · Barcelona",
+    "home": "Smena — home"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "roles": "Roles",
+    "process": "How it works",
+    "contact": "Contact",
+    "cta": "Request staff",
+    "open": "Open menu",
+    "close": "Close menu",
+    "skip": "Skip to content",
+    "lang": "Language"
+  },
+  "langHint": {
+    "offer": "Prefer English?",
+    "link": "View in English →",
+    "dismiss": "Dismiss"
+  },
+  "hero": {
+    "eyebrow": "Hospitality & Beauty Staffing · Barcelona",
+    "title": "We fill the vacancy at your café, restaurant or salon in *7 days*",
+    "subtitle": "Vetted waiters, baristas, receptionists and beauty professionals in Barcelona. You only pay for results.",
+    "ctaPrimary": "Request staff",
+    "ctaSecondary": "I'm looking for work",
+    "sticker": "PAY ONLY FOR RESULTS · PAY ONLY FOR RESULTS · ",
+    "facts": [
+      {
+        "value": "48 h",
+        "label": "first candidates"
+      },
+      {
+        "value": "30 days",
+        "label": "free replacement"
+      },
+      {
+        "value": "0 €",
+        "label": "upfront"
+      }
+    ],
+    "photos": {
+      "barista": "Barista making coffee",
+      "waiter": "Waiter with a tray",
+      "beauty": "Nail technician at work"
+    }
+  },
+  "marquee": [
+    "Waiters",
+    "Baristas",
+    "Receptionists",
+    "Hairdressers",
+    "Nail techs",
+    "Bartenders"
+  ],
+  "roles": {
+    "eyebrow": "Who we place",
+    "title": "The whole team, *from the bar to the salon chair*",
+    "cta": "Request",
+    "ctaAria": "Request: {role}",
+    "carouselHint": "Swipe the cards",
+    "items": {
+      "floor": {
+        "title": "Floor & bar",
+        "roles": [
+          "Waiters",
+          "Bartenders",
+          "Runners",
+          "Floor assistants"
+        ]
+      },
+      "coffee": {
+        "title": "Coffee shops",
+        "roles": [
+          "Baristas",
+          "Shop assistants",
+          "Helpers"
+        ]
+      },
+      "front": {
+        "title": "Front desk & management",
+        "roles": [
+          "Receptionists",
+          "Hosts",
+          "Supervisors",
+          "Managers"
+        ]
+      },
+      "beauty": {
+        "title": "Beauty",
+        "roles": [
+          "Hairdressers",
+          "Barbers",
+          "Nail techs",
+          "Pedicurists",
+          "Brow artists",
+          "Lash technicians",
+          "Makeup artists"
+        ]
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "How it works",
+    "title": "Four steps. *No surprises.*",
+    "steps": [
+      {
+        "title": "Request",
+        "text": "Tell us who you need. 2 minutes."
+      },
+      {
+        "title": "Candidates in 48 h",
+        "text": "We send profiles that are already interviewed and vetted."
+      },
+      {
+        "title": "You choose",
+        "text": "Run a trial shift or an interview with whoever fits."
+      },
+      {
+        "title": "They start",
+        "text": "Your new team member starts their first shift."
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Pay only for results",
+        "text": "No hire, no fee."
+      },
+      {
+        "title": "Free replacement for 30 days",
+        "text": "If the person doesn't fit in the first month, we find another at no cost."
+      }
+    ],
+    "cta": "Get started"
+  },
+  "form": {
+    "eyebrow": "Request",
+    "title": "Who do you need? *We reply today.*",
+    "bullets": [
+      "We message you on WhatsApp within 2 hours (Mon–Fri, 9–20)",
+      "No commitment, no upfront payment",
+      "First candidates in 48 hours"
+    ],
+    "photoAlt": "Receptionist at the front desk",
+    "formLabel": "Staff request",
+    "fields": {
+      "name": {
+        "label": "Your name",
+        "placeholder": "Anna"
+      },
+      "business": {
+        "label": "Business name",
+        "placeholder": "Café Gràcia"
+      },
+      "role": {
+        "label": "Who are you looking for?",
+        "placeholder": "Choose a role"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "placeholder": "+34 600 000 000"
+      }
+    },
+    "roleOptions": {
+      "floor": "Floor & bar",
+      "coffee": "Coffee shop / barista",
+      "front": "Front desk & management",
+      "beauty": "Beauty",
+      "other": "Other"
+    },
+    "consent": {
+      "before": "I agree to the ",
+      "link": "privacy policy",
+      "after": ""
+    },
+    "submit": "Send request",
+    "sending": "Sending…",
+    "privacyInfo": "Controller: Smena. Purpose: contacting you about your request. Rights: access, rectification, erasure and more by email. Details in the privacy policy.",
+    "errors": {
+      "required": "Please fill in this field",
+      "tooShort": "Too short",
+      "tooLong": "Too long",
+      "phone": "Check the number, e.g. +34 600 000 000",
+      "consent": "We need your consent",
+      "role": "Choose an option",
+      "rate": "Too many requests in a row. Try again in a few minutes or message us on WhatsApp."
+    },
+    "success": {
+      "title": "Got it!",
+      "text": "We'll message you on WhatsApp shortly.",
+      "cta": "Message us on WhatsApp now"
+    },
+    "failure": {
+      "text": "Something went wrong. Message us directly on WhatsApp",
+      "cta": "Message on WhatsApp",
+      "retry": "Try again"
+    },
+    "candidate": {
+      "lead": "Looking for work?",
+      "text": "Leave your contact and we'll message you when there's a vacancy.",
+      "toggle": "Leave contact",
+      "formLabel": "Candidate contact",
+      "name": {
+        "label": "Name",
+        "placeholder": "Anna"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "placeholder": "+34 600 000 000"
+      },
+      "profession": {
+        "label": "Profession",
+        "placeholder": "Choose"
+      },
+      "submit": "Send",
+      "privacyInfo": "Controller: Smena. Purpose: keeping your contact in our candidate database for 12 months and offering you vacancies. Rights by email.",
+      "success": "Thanks! We'll message you when there's a vacancy for you."
+    }
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "How much does it cost?",
+        "a": "[Terms pending: fixed fee or % of the first salary.]"
+      },
+      {
+        "q": "What does “pay only for results” mean?",
+        "a": "[Confirm wording against the contract: payment after the hire starts.]"
+      }
+    ]
+  },
+  "whatsapp": {
+    "businessText": "Hi, I need staff for my business",
+    "fabLabel": "Message us on WhatsApp"
+  },
+  "stickyCta": "Request staff",
+  "footer": {
+    "contactsTitle": "Contact",
+    "call": "Call us",
+    "email": "Email",
+    "hours": "Hours",
+    "hoursValue": "Mon–Fri 9:00–20:00",
+    "area": "Area",
+    "areaValue": "Barcelona and surroundings",
+    "socialTitle": "Social",
+    "navTitle": "Navigation",
+    "legal": {
+      "legal": "Legal notice",
+      "privacy": "Privacy policy",
+      "cookies": "Cookie policy"
+    },
+    "backHome": "← Back to home"
+  },
+  "legal": {
+    "priorityNote": "The Spanish version of this document prevails legally.",
+    "priorityLink": "Versión en español",
+    "updated": "Updated: 26 Oct 2026",
+    "legal": {
+      "title": "Legal notice",
+      "sections": [
+        {
+          "h": "Owner",
+          "p": [
+            "In accordance with Law 34/2002 (LSSI), the website owner's details are:",
+            "Name / company: [NOMBRE]",
+            "NIF: [NIF]",
+            "Address: [DIRECCIÓN]",
+            "Email: hello@smenabcn.com"
+          ]
+        },
+        {
+          "h": "Purpose",
+          "p": [
+            "This website describes our hospitality and beauty staffing services in Barcelona and lets you send a request."
+          ]
+        },
+        {
+          "h": "Liability",
+          "p": [
+            "The owner is not liable for misuse of the website's content or for linked third-party websites."
+          ]
+        },
+        {
+          "h": "Governing law",
+          "p": [
+            "Spanish law applies. Disputes are handled by the courts of Barcelona unless the law provides otherwise."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "sections": [
+        {
+          "h": "Controller",
+          "p": [
+            "[NOMBRE], NIF [NIF], [DIRECCIÓN]. Email: hello@smenabcn.com."
+          ]
+        },
+        {
+          "h": "What data and why",
+          "p": [
+            "Business form: name, business name, role, WhatsApp number. Purpose: contacting you about your request and finding staff.",
+            "Candidate form: name, WhatsApp number, profession. Purpose: keeping your contact in our candidate database and offering you vacancies."
+          ]
+        },
+        {
+          "h": "Legal basis",
+          "p": [
+            "Your consent (Art. 6.1.a GDPR), given by ticking the checkbox. You can withdraw it at any time."
+          ]
+        },
+        {
+          "h": "Retention",
+          "p": [
+            "Business requests: for the duration of our relationship plus legal periods. Candidate contacts: 12 months."
+          ]
+        },
+        {
+          "h": "Recipients",
+          "p": [
+            "Data is not shared with third parties except processors: Telegram (manager notifications), Google (request spreadsheet), Cloudflare (hosting)."
+          ]
+        },
+        {
+          "h": "Your rights",
+          "p": [
+            "Access, rectification, erasure, restriction, portability and objection (ARSULIPO) at hello@smenabcn.com. You can complain to the AEPD (www.aepd.es)."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie policy",
+      "sections": [
+        {
+          "h": "What we use",
+          "p": [
+            "This site sets no advertising or analytics cookies. Visit statistics are collected without cookies or personal data."
+          ]
+        },
+        {
+          "h": "Local storage",
+          "p": [
+            "Campaign parameters (UTM) are kept in sessionStorage until you close the tab, to attach them to your request. Spam protection (Cloudflare Turnstile) may use technical browser data."
+          ]
+        },
+        {
+          "h": "Changes",
+          "p": [
+            "If we add advertising pixels, they will only load after your consent in a banner."
+          ]
+        }
+      ]
+    }
+  }
+}

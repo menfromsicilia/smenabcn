@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import Marquee from './Marquee.astro';
+import Roles from './Roles.astro';
+import Process from './Process.astro';
+import Faq from './Faq.astro';
+import FormSection from './FormSection.astro';
+import Footer from './Footer.astro';
+import WhatsAppFab from './WhatsAppFab.astro';
+import StickyCta from './StickyCta.vue';
+import { languages, localePath, useTranslations, type Lang } from '../i18n/utils';
+import { site } from '../content/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const socials = Object.values(site.socials).filter(Boolean);
+
+const schema: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'EmploymentAgency',
+    name: 'Smena',
+    description: t.meta.description,
+    url: new URL(localePath(lang), site.url).href,
+    logo: new URL('/favicon.svg', site.url).href,
+    image: new URL(`/og/${lang}.png`, site.url).href,
+    telephone: `+${site.whatsappNumber}`,
+    email: site.email,
+    areaServed: { '@type': 'City', name: 'Barcelona' },
+    address: { '@type': 'PostalAddress', addressLocality: 'Barcelona', addressRegion: 'Catalonia', addressCountry: 'ES' },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '20:00',
+    },
+    knowsLanguage: Object.values(languages).map((l) => l.htmlLang),
+    ...(socials.length ? { sameAs: socials } : {}),
+  },
+];
+
+if (site.sections.faq) {
+  schema.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  });
+}
+---
+
+<Base lang={lang} title={t.meta.title} description={t.meta.description} schema={schema}>
+  <Header lang={lang} />
+  <main id="main">
+    <Hero lang={lang} />
+    <Marquee items={t.marquee} />
+    <Roles lang={lang} />
+    <Process lang={lang} />
+    {site.sections.faq && <Faq lang={lang} />}
+    <FormSection lang={lang} />
+  </main>
+  <Footer lang={lang} />
+  <WhatsAppFab lang={lang} />
+  <StickyCta client:media="(max-width: 767px)" label={t.stickyCta} />
+</Base>

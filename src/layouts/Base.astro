@@ -1,0 +1,97 @@
+---
+import '@fontsource-variable/playfair-display/wght.css';
+import '@fontsource-variable/playfair-display/wght-italic.css';
+import '@fontsource-variable/montserrat/wght.css';
+import '../styles/global.css';
+import playfairLatin from '@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2?url';
+import playfairCyrillic from '@fontsource-variable/playfair-display/files/playfair-display-cyrillic-wght-normal.woff2?url';
+import montserratLatin from '@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url';
+import montserratCyrillic from '@fontsource-variable/montserrat/files/montserrat-cyrillic-wght-normal.woff2?url';
+import { languages, langCodes, defaultLang, localePath, useTranslations, type Lang, type PageSlug } from '../i18n/utils';
+import { site } from '../content/site';
+
+interface Props {
+  lang: Lang;
+  slug?: PageSlug;
+  title: string;
+  description: string;
+  schema?: Record<string, unknown>[];
+}
+
+const { lang, slug = '', title, description, schema = [] } = Astro.props;
+const t = useTranslations(lang);
+const htmlLang = languages[lang].htmlLang;
+const canonical = new URL(localePath(lang, slug), site.url).href;
+const ogImage = new URL(`/og/${lang}.png`, site.url).href;
+const cyrillic = lang === 'ru' || lang === 'uk';
+const preloads = cyrillic ? [playfairCyrillic, montserratCyrillic] : [playfairLatin, montserratLatin];
+const { analytics } = site;
+---
+
+<!doctype html>
+<html lang={htmlLang} data-lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {langCodes.map((code) => <link rel="alternate" hreflang={languages[code].htmlLang} href={new URL(localePath(code, slug), site.url).href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(localePath(defaultLang, slug), site.url).href} />
+    <meta name="theme-color" content="#F3F2EE" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {preloads.map((href) => <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />)}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Smena" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t.meta.ogAlt} />
+    <meta property="og:locale" content={t.meta.ogLocale} />
+    {langCodes.filter((code) => code !== lang).map((code) => <meta property="og:locale:alternate" content={languages[code].dict.meta.ogLocale} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {schema.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    {analytics.provider === 'plausible' && analytics.plausibleDomain && (
+      <script is:inline defer data-domain={analytics.plausibleDomain} src={analytics.plausibleSrc} />
+    )}
+    {analytics.provider === 'umami' && analytics.umamiWebsiteId && (
+      <script is:inline defer data-website-id={analytics.umamiWebsiteId} src={analytics.umamiSrc} />
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t.nav.skip}</a>
+    <slot />
+    <script>
+      import '../lib/page';
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 100;
+    padding: 12px 18px;
+    border-radius: var(--radius-pill);
+    background: var(--ink);
+    color: var(--bg);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 12px;
+  }
+</style>

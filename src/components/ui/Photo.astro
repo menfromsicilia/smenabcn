@@ -1,0 +1,83 @@
+---
+import { Picture } from 'astro:assets';
+import Icon from './Icon.astro';
+import { site, type PhotoKey } from '../../content/site';
+import type { IconName } from '../../lib/icons';
+
+interface Props {
+  photo: PhotoKey;
+  alt: string;
+  icon: IconName;
+  tone?: 'tomato' | 'butter' | 'blush' | 'sky' | 'ink';
+  eager?: boolean;
+  widths?: number[];
+  sizes?: string;
+  class?: string;
+}
+
+const { photo, alt, icon, tone = 'butter', eager = false, widths = [320, 480, 640], sizes = '(min-width: 1024px) 30vw, 60vw', class: className } = Astro.props;
+const image = site.photos[photo];
+---
+
+{image ? (
+  <Picture
+    src={image}
+    alt={alt}
+    formats={['avif', 'webp']}
+    widths={widths}
+    sizes={sizes}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+    class:list={['photo', className]}
+  />
+) : (
+  <div class:list={['photo', 'placeholder', `tone-${tone}`, className]} role="img" aria-label={alt}>
+    <Icon name={icon} size={64} strokeWidth={1.25} />
+  </div>
+)}
+
+<style>
+  .photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  .placeholder {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 30% 25%, rgb(255 255 255 / .55), transparent 55%),
+      radial-gradient(circle at 80% 90%, rgb(0 0 0 / .12), transparent 50%),
+      var(--tone);
+  }
+
+  .placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgb(28 26 23 / .14) 1px, transparent 1.2px);
+    background-size: 14px 14px;
+    mask-image: linear-gradient(160deg, transparent 30%, #000);
+  }
+
+  .placeholder :global(svg) {
+    position: relative;
+    z-index: 1;
+    width: 34%;
+    height: auto;
+    max-width: 96px;
+    opacity: .85;
+  }
+
+  .tone-tomato { --tone: var(--tomato); }
+  .tone-butter { --tone: var(--butter); }
+  .tone-blush { --tone: var(--blush); }
+  .tone-sky { --tone: var(--sky); }
+  .tone-ink { --tone: #C9C3B8; }
+</style>

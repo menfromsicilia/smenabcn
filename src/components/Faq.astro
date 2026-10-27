@@ -1,0 +1,87 @@
+---
+import Icon from './ui/Icon.astro';
+import { accent, useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="faq" class="section-y" aria-labelledby="faq-title">
+  <div class="container-x faq">
+    <div class="head">
+      <p class="eyebrow">{t.faq.eyebrow}</p>
+      <h2 id="faq-title" class="h2" set:html={accent(t.faq.title)} />
+    </div>
+    <div class="items">
+      {t.faq.items.map((item) => (
+        <details>
+          <summary>
+            <span class="h3">{item.q}</span>
+            <Icon name="chevron-down" />
+          </summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    display: grid;
+    gap: 32px;
+  }
+
+  .head {
+    display: grid;
+    gap: 18px;
+  }
+
+  .h2 {
+    --accent: var(--tomato-ink);
+  }
+
+  details {
+    border-bottom: 1.5px solid var(--line-strong);
+  }
+
+  summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    min-height: 64px;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary :global(svg) {
+    flex: none;
+    transition: transform .3s var(--ease-out);
+  }
+
+  details[open] summary :global(svg) {
+    transform: rotate(180deg);
+  }
+
+  details p {
+    padding: 0 0 20px;
+    color: var(--ink-soft);
+  }
+
+  @media (min-width: 1024px) {
+    .faq {
+      grid-template-columns: 5fr 7fr;
+      gap: 64px;
+    }
+  }
+</style>

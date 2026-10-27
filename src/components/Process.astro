@@ -1,0 +1,233 @@
+---
+import Guarantee from './Guarantee.astro';
+import Icon from './ui/Icon.astro';
+import { accent, useTranslations, type Lang } from '../i18n/utils';
+import type { IconName } from '../lib/icons';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const guaranteeIcons: IconName[] = ['shield', 'refresh'];
+---
+
+<section id="proceso" class="section-y process" aria-labelledby="process-title">
+  <div class="container-x">
+    <div class="head">
+      <p class="eyebrow" data-reveal>{t.process.eyebrow}</p>
+      <h2 id="process-title" class="h2" set:html={accent(t.process.title)} data-reveal style="--i: 1" />
+    </div>
+
+    <div class="steps-wrap" data-reveal>
+    <span class="line" aria-hidden="true"><span class="line-fill"></span></span>
+    <ol class="steps">
+      {t.process.steps.map((step, index) => (
+        <li class="step" style={`--i: ${index}`}>
+          <span class="dot" aria-hidden="true">{index + 1}</span>
+          <div class="step-body">
+            <h3 class="h3">{step.title}</h3>
+            <p>{step.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    </div>
+
+    <div class="guarantees">
+      {t.process.guarantees.map((item, index) => (
+        <Guarantee title={item.title} text={item.text} icon={guaranteeIcons[index]!} index={index} />
+      ))}
+    </div>
+
+    <div class="cta" data-reveal>
+      <a class="btn" href="#form" data-intent="business" data-event="cta_process_business">
+        {t.process.cta}
+        <Icon name="arrow-right" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    background: var(--blush);
+    color: var(--ink);
+  }
+
+  .head {
+    display: grid;
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+
+  .h2 {
+    --accent: var(--tomato-ink);
+  }
+
+  .steps-wrap {
+    position: relative;
+    margin-bottom: 56px;
+  }
+
+  :global(.js) .steps-wrap[data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .steps {
+    display: grid;
+    gap: 36px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .line {
+    position: absolute;
+    left: 27px;
+    top: 28px;
+    bottom: 28px;
+    width: 2px;
+    background: rgb(28 26 23 / .25);
+  }
+
+  .line-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--ink);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.4s var(--ease-out) .2s;
+  }
+
+  .steps-wrap:global(.is-visible) .line-fill,
+  :global(html:not(.js)) .line-fill {
+    transform: none;
+  }
+
+  .step {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  :global(.js) .step {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+    transition-delay: calc(var(--i) * 160ms + 100ms);
+  }
+
+  .steps-wrap:global(.is-visible) .step {
+    opacity: 1;
+    transform: none;
+  }
+
+  .dot {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--blush);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-body {
+    display: grid;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .step-body p {
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  .guarantees {
+    display: grid;
+    gap: 16px;
+  }
+
+  .cta {
+    margin-top: 40px;
+  }
+
+  @media (min-width: 768px) {
+    .guarantees {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .head {
+      margin-bottom: 72px;
+      max-width: 860px;
+    }
+
+    .steps-wrap {
+      margin-bottom: 72px;
+    }
+
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .line {
+      left: 28px;
+      right: calc(25% - 28px);
+      top: 27px;
+      bottom: auto;
+      width: auto;
+      height: 2px;
+    }
+
+    .line-fill {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .step {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .step-body {
+      padding-top: 0;
+      padding-right: 16px;
+    }
+
+    .step-body p {
+      font-size: 16px;
+    }
+
+    .cta {
+      margin-top: 56px;
+      text-align: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.js) .step {
+      opacity: 1;
+      transform: none;
+    }
+
+    .line-fill {
+      transform: none !important;
+    }
+  }
+</style>

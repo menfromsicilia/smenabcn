@@ -16,13 +16,13 @@
 
 ## 3. Проект Pages
 
-1. **[вы]** Workers & Pages → Create → Pages → Connect to Git → выбрать репозиторий.
+1. **[вы]** Workers & Pages → Create → внизу «Looking to deploy Pages? Get started» (или https://dash.cloudflare.com/?to=/:account/pages/new/provider/github) → Import an existing Git repository. Не путать с мастером Workers: если на экране есть поле «Deploy command», это не тот мастер.
 2. **[вы]** Настройки сборки:
    - Framework preset: `Astro`
    - Build command: `npm run build`
    - Build output directory: `dist`
    - Версию Node берёт из `.nvmrc` (22), ничего задавать не нужно.
-3. **[вы]** Save and Deploy. Через 1–2 минуты сайт откроется на `smena-landing.pages.dev` (или похожем адресе — пришлите мне).
+3. **[вы]** Save and Deploy. Через 1–2 минуты сайт откроется на `smenabcn.pages.dev`.
 4. **[вы]** В проекте → Custom domains → Set up a custom domain → `smenabcn.com`. DNS-запись Cloudflare создаст сам.
 5. **[вы]** www → корень: Rules → Redirect Rules → шаблон «Redirect from WWW to root». Шаблон сам подскажет, какую DNS-запись для `www` добавить.
 
@@ -44,7 +44,7 @@
 
 ## 6. Turnstile (антиспам)
 
-1. **[вы]** Cloudflare → Turnstile → Add widget → режим Managed, домены `smenabcn.com` и `<проект>.pages.dev`.
+1. **[вы]** Cloudflare → Turnstile → Add widget → режим Managed, домены `smenabcn.com` и `smenabcn.pages.dev`.
 2. **[вы]** Прислать мне **Site Key** (он публичный). **Secret Key** оставить у себя.
 3. **[я]** Зашить Site Key в сборку и запушить.
 
